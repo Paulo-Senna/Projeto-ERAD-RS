@@ -5,14 +5,14 @@ Antes de iniciar, certifique-se de ter instalado em sua máquina ou servidor:
 * **Python 3.10+**
 * **Git**
 * Acesso a uma GPU com pelo menos 24GB de VRAM
-
+* Chave do HuggingFace para o modelo utilizado
 ---
 
 <br>
 
 ## 🛠️ Tecnologias e Ferramentas
 * **Motor de Inferência:** [vLLM](https://github.com/vllm-project/vllm)
-* **Modelo:** Meta-Llama-3-8B-Instruct (via *NousResearch*)
+* **Modelo:** Meta-Llama-3-8B-Instruct (via *NousResearch*) [Llama](https://huggingface.co/NousResearch/Meta-Llama-3-8B-Instruct)
 * **Banco Vetorial:** FAISS
 * **Embeddings:** `sentence-transformers/all-MiniLM-L6-v2`
 * **Gerador de Ataque:** [Garak](https://github.com/leondz/garak) (probe `promptinject`)
