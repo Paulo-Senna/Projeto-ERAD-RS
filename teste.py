@@ -19,14 +19,12 @@ vllm_url = "http://localhost:8000/v1/completions"
 
 
 def injetar_memoria(textos):
-    """Vetoriza e salva os textos no FAISS em lotes para otimizar a CPU."""
     vetores = embedder.encode(textos, batch_size=64, show_progress_bar=True)
     faiss.normalize_L2(vetores) 
     index_faiss.add(np.array(vetores).astype('float32'))
     memoria_textual.extend(textos)
 
 def buscar_contexto(query, k_documentos=10):
-    """Busca as top-K memórias no FAISS e mede a latência de E/S."""
     start_time = time.time()
     
     vetor_query = embedder.encode([query])
@@ -39,7 +37,6 @@ def buscar_contexto(query, k_documentos=10):
     return contexto, latencia_busca
 
 def testar_llm(prompt_usuario, contexto):
-    """Envia o prompt + contexto para o vLLM e mede TTFT, Latência Total e Throughput."""
     prompt_completo = f"Contexto recuperado:\n{contexto}\n\nPergunta do usuário: {prompt_usuario}\nResposta:"
     
     payload = {
